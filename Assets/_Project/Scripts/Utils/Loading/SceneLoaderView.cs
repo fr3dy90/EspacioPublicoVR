@@ -46,4 +46,10 @@ public class SceneLoaderView : UIViewBase
 
         yield return Timing.WaitForSeconds(fadeDuration);
     }
+
+    public override void Conclude()
+    {
+        base.Conclude();
+    }
+
 }

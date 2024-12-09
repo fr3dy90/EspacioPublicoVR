@@ -44,24 +44,24 @@ public class GameManager : MonoBehaviour
     {
         switch (state)
         {
-            /*case IntroState introState:
-                introState.Dependencies();
-                break;
             case MainState mainState:
                 mainState.Dependencies();
                 break;
-            case StoryState storyState:
-                storyState.Dependencies(achievements);
+            case Excercise1State excercise1State:
+                excercise1State.Dependencies();
                 break;
-            case PlayersConfigurationState characterSelectorState:
-                characterSelectorState.Dependencies(playerEntities);
+            case Excercise2State excercise2State:
+                excercise2State.Dependencies();
                 break;
-            case GameplayState gameplayState:
-                gameplayState.Dependencies(playerEntities, achievements);
+            case Excercise3State excercise3State:
+                excercise3State.Dependencies();
                 break;
-            case ResultsState resultsState:
-                resultsState.Dependencies(playerEntities);
-                break;*/
+            case Excercise4State excercise4State:
+                excercise4State.Dependencies();
+                break;
+            case MinigameState minigameState:
+                minigameState.Dependencies();
+                break;
             default:
                 break;
         }
