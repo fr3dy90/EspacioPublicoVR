@@ -1,21 +1,29 @@
+using System;
 using UnityEngine;
-using UnityEngine.Rendering;
 
 public class MainState : GameStateBase
 {
     [SerializeField] private LocalState ActualState;
     [SerializeField] private AudioManager AudioManager;
     [SerializeField] private UIControllerBase uiController;
-    public void Dependencies(AudioManager _audioManager, UIControllerBase _uiController)
+    public void Dependencies(AudioManager _audioManager)
     {
         AudioManager = _audioManager;
-        uiController = _uiController;
     }
     
     public override void EnterState()
     {
         base.EnterState();
         SetState(ActualState);
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            nextState = States.Exercise_1;
+            ExitState();
+        }
     }
 
     private void SetState(LocalState _nextState)
@@ -29,6 +37,12 @@ public class MainState : GameStateBase
             case LocalState.Close:
                 break;
         }
+    }
+
+    public override void ExitState()
+    {
+        base.ExitState();
+        Debug.Log("entra exit state");
     }
 
     private void OnIntroVoice()

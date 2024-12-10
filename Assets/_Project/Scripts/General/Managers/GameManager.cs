@@ -49,7 +49,7 @@ public class GameManager : MonoBehaviour
         switch (state)
         {
             case MainState mainState:
-                mainState.Dependencies(AudioManager, UiBase);
+                mainState.Dependencies(AudioManager);
                 break;
             case Excercise1State excercise1State:
                 excercise1State.Dependencies();
