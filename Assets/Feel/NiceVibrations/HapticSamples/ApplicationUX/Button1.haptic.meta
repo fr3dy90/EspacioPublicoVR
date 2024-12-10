@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: 288ca76b927d24b3eb9b30fc8a464b92
+AssetOrigin:
+  serializedVersion: 1
+  productId: 183370
+  packageName: Feel
+  packageVersion: 5.1
+  assetPath: Assets/Feel/NiceVibrations/HapticSamples/ApplicationUX/Button1.haptic
+  uploadId: 709698
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: 27e13728547e649378bcdcec9e04e65b, type: 3}
