@@ -14,3 +14,13 @@ public enum HitState
     Enter,
     Exit
 }
+
+public enum LocalState
+{
+    None,
+    IntroVoice,
+    InitialObservation,
+    SocialInteraction,
+    Close,
+    Questionary
+}

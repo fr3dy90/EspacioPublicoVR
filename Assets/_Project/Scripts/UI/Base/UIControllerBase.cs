@@ -26,4 +26,9 @@ public abstract class UIControllerBase : MonoBehaviour
     {
         RemoveListeners();
     }
+    
+    public virtual void OnShow()
+    {
+        
+    }
 }
