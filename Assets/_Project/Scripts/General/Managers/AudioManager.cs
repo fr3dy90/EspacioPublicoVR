@@ -1,9 +1,12 @@
 using System;
 using UnityEngine;
 
+[RequireComponent(typeof(AudioSource))]
 public class AudioManager : MonoBehaviour
 {
     public static AudioManager Instance;
+
+    [SerializeField] private AudioSource audioSource; 
     private void Awake()
     {
         if (Instance == null)
@@ -14,7 +17,12 @@ public class AudioManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        
+
+        if (audioSource == null)
+        {
+            audioSource = GetComponent<AudioSource>();
+        }
+       
         DontDestroyOnLoad(this);
     }
 

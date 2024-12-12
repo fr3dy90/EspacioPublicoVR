@@ -1,11 +1,15 @@
-using System;
 using UnityEngine;
 
 public class MainState : GameStateBase
 {
     [SerializeField] private LocalState ActualState;
     [SerializeField] private AudioManager AudioManager;
-    [SerializeField] private UIControllerBase uiController;
+    [SerializeField] private UIIntro uiController;
+    
+    //onlu for testing
+    [SerializeField] private States testnextState;
+    
+
     public void Dependencies(AudioManager _audioManager)
     {
         AudioManager = _audioManager;
@@ -15,15 +19,13 @@ public class MainState : GameStateBase
     {
         base.EnterState();
         SetState(ActualState);
+        uiController.SetButtron(OnFinish);
     }
 
-    private void Update()
+    void OnFinish()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            nextState = States.Exercise_1;
-            ExitState();
-        }
+        nextState = testnextState;
+        ExitState();
     }
 
     private void SetState(LocalState _nextState)
@@ -48,7 +50,7 @@ public class MainState : GameStateBase
     private void OnIntroVoice()
     {
         AudioManager.PlayOffVoice();
-        uiController.OnShow();
+       
         
         //todo: Add Listener al boton de la ui para cambiar de estado y passar a la primera actividad. 
     }
