@@ -9,10 +9,6 @@ public class GameManager : MonoBehaviour
     private SceneLoaderController loadingController;
     private GameStateBase currentGameState;
 
-    [Header("Dependencies")] 
-    [SerializeField] private AudioManager AudioManager;
-    [SerializeField] private UIControllerBase UiBase;
-
     private void Awake()
     {
         loadingController = GetComponent<SceneLoaderController>();
@@ -49,7 +45,7 @@ public class GameManager : MonoBehaviour
         switch (state)
         {
             case MainState mainState:
-                mainState.Dependencies(AudioManager);
+                mainState.Dependencies();
                 break;
             case Excercise1State excercise1State:
                 excercise1State.Dependencies();

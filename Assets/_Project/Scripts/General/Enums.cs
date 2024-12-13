@@ -1,3 +1,5 @@
+using UnityEngine;
+
 public enum States
 { 
     None = 0,
@@ -18,9 +20,21 @@ public enum HitState
 public enum LocalState
 {
     None,
-    IntroVoice,
-    InitialObservation,
-    SocialInteraction,
-    Close,
-    Questionary
+   Intro,
+   Observation,
+   SocialInteraction,
+   Closing
+}
+
+public enum ViewType
+{
+    Superior,
+    Medium
+}
+
+[System.Serializable]
+public struct ViewModelSruct
+{
+    public ViewType ViewType;
+    [TextArea(3,3)]public string TextView;
 }

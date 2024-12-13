@@ -26,8 +26,8 @@ public class AudioManager : MonoBehaviour
         DontDestroyOnLoad(this);
     }
 
-    public void PlayOffVoice()
+    public void PlayOffVoice(AudioClip _clip)
     {
-        throw new NotImplementedException();
+        audioSource.PlayOneShot(_clip);
     }
 }

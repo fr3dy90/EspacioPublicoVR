@@ -8,7 +8,7 @@ public class Globals
 
     //Debug Mode
 #if UNITY_EDITOR
-    public static bool DebugModeActivated = true;
+    public static bool DebugModeActivated = false;
     public static bool DebugCollisionActivated = false;
 #else    
     public static bool DebugModeActivated = false;

@@ -1,59 +1,88 @@
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 
 public class MainState : GameStateBase
 {
+    [Header("Prefabs")] 
+    [SerializeField] private AudioManager prefAudioManager;
+    [SerializeField] private UIController prefUiController;
+    
+    [Header("Depencies")] 
+    [SerializeField] private UIController uiController;
+    
+    [Header("Scene State")]
     [SerializeField] private LocalState ActualState;
-    [SerializeField] private AudioManager AudioManager;
-    [SerializeField] private UIIntro uiController;
-    
-    //onlu for testing
-    [SerializeField] private States testnextState;
-    
 
-    public void Dependencies(AudioManager _audioManager)
+    [Header("AudioLibrary")] 
+    [SerializeField] private AudioClip[] audioLibrary;
+
+
+    protected override void Awake()
     {
-        AudioManager = _audioManager;
+        base.Awake();
+        uiController.Initialize();
+    }
+
+    public void Dependencies()
+    {
+        if (AudioManager.Instance == null)
+        {
+            Instantiate(prefAudioManager);
+        }
+
+        if (uiController == null)
+            uiController = Instantiate(prefUiController);
     }
     
     public override void EnterState()
     {
         base.EnterState();
         SetState(ActualState);
-        uiController.SetButtron(OnFinish);
-    }
-
-    void OnFinish()
-    {
-        nextState = testnextState;
-        ExitState();
-    }
-
-    private void SetState(LocalState _nextState)
-    {
-        if (ActualState == _nextState) return;
-
-        switch (_nextState)
-        {
-            case LocalState.IntroVoice:
-                break;
-            case LocalState.Close:
-                break;
-        }
     }
 
     public override void ExitState()
     {
+        nextState = States.Exercise_1;
         base.ExitState();
-        Debug.Log("entra exit state");
+    }
+    
+    private void SetState(LocalState _nextState)
+    {
+        switch (_nextState)
+        {
+            case LocalState.Intro:
+                OnStartIntro();
+                break;
+            
+            case LocalState.Observation:
+                break;
+            
+            case LocalState.SocialInteraction:
+                break;
+            
+            case LocalState.Closing:
+                break;
+        }
+
+        ActualState = _nextState;
+
     }
 
-    private void OnIntroVoice()
+    private void OnStartIntro()
     {
-        AudioManager.PlayOffVoice();
-       
-        
-        //todo: Add Listener al boton de la ui para cambiar de estado y passar a la primera actividad. 
+        uiController.Initialize();
+        // El indice define como se crea la vista de la pantalla. 
+        uiController.SetView(0, () =>
+        {
+            uiController.SetView(1, ()=> { OnWaitAudioClip(); });
+        });
     }
-    
-    
+
+    private async UniTask OnWaitAudioClip()
+    {
+        uiController.SetView(2);
+        AudioManager.Instance.PlayOffVoice(audioLibrary[0]);
+        await UniTask.WaitForSeconds(audioLibrary[0].length);
+        uiController.SetView(2,ExitState);
+    }
 }
