@@ -350,15 +350,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1490476097221287081, guid: 4805c17f0c667f5439609bb77fe56600, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 4.94
       objectReference: {fileID: 0}
     - target: {fileID: 1490476097221287081, guid: 4805c17f0c667f5439609bb77fe56600, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 1490476097221287081, guid: 4805c17f0c667f5439609bb77fe56600, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -9.5
       objectReference: {fileID: 0}
     - target: {fileID: 1490476097221287081, guid: 4805c17f0c667f5439609bb77fe56600, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1330,20 +1330,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44c9773cd28bb2244a5880ed40d5555b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefAudioManager: {fileID: 0}
+  prefAudioManager: {fileID: 2208960168045591882, guid: 14bda26dc30bbe64e9e9b862218c6ff4, type: 3}
   prefUiController: {fileID: 6413032625134569194, guid: 4805c17f0c667f5439609bb77fe56600, type: 3}
+  prefPositionProvider: {fileID: 2550186310410633864, guid: a54364953d492bb44bd875062aa8e525, type: 3}
+  scriptableUIModel: {fileID: 11400000, guid: 57cf9959c6b8d0d4ca667a6150c02689, type: 2}
   uiController: {fileID: 160285808}
-  sceneObjects:
-  - {fileID: 768400740}
-  - {fileID: 1979504866}
-  - {fileID: 396339728}
-  - {fileID: 359228121}
   ActualState: 1
   audioLibrary:
   - {fileID: 8300000, guid: ed8bfa69b77dfea408dcfc5c818fd030, type: 3}
   - {fileID: 8300000, guid: 600d3f3cc1942694abce298e526c7405, type: 3}
   - {fileID: 8300000, guid: 2aab5aa441b812143be3020a8d81e6b5, type: 3}
   - {fileID: 8300000, guid: 3c9950c5a0791254d9ad979a44b2ede5, type: 3}
+  positionProvider:
+    PlayerPosition: {x: 22.21, y: -1.151037, z: 15.43}
+    PlayerRotation: {x: 0, y: 0, z: 0}
+    CanvasPosition: {x: 4.94, y: 0.5, z: -9.5}
+    CanvasRotation: {x: 0, y: 0, z: 0}
+  sceneObjects:
+  - {fileID: 768400740}
+  - {fileID: 1979504866}
+  - {fileID: 396339728}
+  - {fileID: 359228121}
   objectsFonded: 0
 --- !u!4 &854222059
 Transform:

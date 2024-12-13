@@ -532,10 +532,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefAudioManager: {fileID: 2208960168045591882, guid: 14bda26dc30bbe64e9e9b862218c6ff4, type: 3}
   prefUiController: {fileID: 6413032625134569194, guid: 4805c17f0c667f5439609bb77fe56600, type: 3}
+  prefPositionProvider: {fileID: 2550186310410633864, guid: a54364953d492bb44bd875062aa8e525, type: 3}
+  scriptableUIModel: {fileID: 11400000, guid: d8fe42c1040c3cd458b3e9ea436019da, type: 2}
   uiController: {fileID: 1776210285}
   ActualState: 1
   audioLibrary:
   - {fileID: 8300000, guid: 47e860be0ce861a409591dcd4f802017, type: 3}
+  positionProvider:
+    PlayerPosition: {x: 17.6, y: -1.151037, z: 25.181}
+    PlayerRotation: {x: 0, y: 0, z: 0}
+    CanvasPosition: {x: 0, y: 0.5, z: 0}
+    CanvasRotation: {x: 0, y: 0, z: 0}
 --- !u!4 &1140956286
 Transform:
   m_ObjectHideFlags: 0
@@ -2125,7 +2132,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1490476097221287081, guid: 4805c17f0c667f5439609bb77fe56600, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 1490476097221287081, guid: 4805c17f0c667f5439609bb77fe56600, type: 3}
       propertyPath: m_LocalPosition.z

@@ -1,37 +1,15 @@
 using Cysharp.Threading.Tasks;
-using UnityEngine;
 
 public class MainState : GameStateBase
 {
-    [Header("Prefabs")] 
-    [SerializeField] private AudioManager prefAudioManager;
-    [SerializeField] private UIController prefUiController;
-    
-    [Header("Depencies")] 
-    [SerializeField] private UIController uiController;
-    
-    [Header("Scene State")]
-    [SerializeField] private LocalState ActualState;
-
-    [Header("AudioLibrary")] 
-    [SerializeField] private AudioClip[] audioLibrary;
-
-
     protected override void Awake()
     {
         base.Awake();
-        uiController.Initialize();
     }
 
     public void Dependencies()
     {
-        if (AudioManager.Instance == null)
-        {
-            Instantiate(prefAudioManager);
-        }
-
-        if (uiController == null)
-            uiController = Instantiate(prefUiController);
+        
     }
     
     public override void EnterState()
@@ -46,7 +24,7 @@ public class MainState : GameStateBase
         base.ExitState();
     }
     
-    private void SetState(LocalState _nextState)
+    protected override void SetState(LocalState _nextState)
     {
         switch (_nextState)
         {
@@ -65,11 +43,12 @@ public class MainState : GameStateBase
         }
 
         ActualState = _nextState;
-
     }
 
     private void OnStartIntro()
     {
+        PositionProvider.Instance.SetPosition(positionProvider);
+        
         uiController.Initialize();
         // El indice define como se crea la vista de la pantalla. 
         uiController.SetView(0, () =>

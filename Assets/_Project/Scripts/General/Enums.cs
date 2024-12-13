@@ -38,3 +38,13 @@ public struct ViewModelSruct
     public ViewType ViewType;
     [TextArea(3,3)]public string TextView;
 }
+
+[System.Serializable]
+public struct PositionProviderStruct
+{
+    public Vector3 PlayerPosition;
+    public Vector3 PlayerRotation;
+    
+    public Vector3 CanvasPosition;
+    public Vector3 CanvasRotation;
+}

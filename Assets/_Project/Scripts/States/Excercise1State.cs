@@ -1,42 +1,25 @@
 using Cysharp.Threading.Tasks;
-using Oculus.Interaction;
 using UnityEngine;
 
 public class Excercise1State : GameStateBase
 {
-    [Header("Prefabs")] [SerializeField] private AudioManager prefAudioManager;
-    [SerializeField] private UIController prefUiController;
-
-    [Header("Depencies")] [SerializeField] private UIController uiController;
+   
+    [Header("Specific Dependencies")]
     [SerializeField] private InteractableGameObject[] sceneObjects;
-
-    [Header("Scene State")] [SerializeField]
-    private LocalState ActualState;
-
-    [Header("AudioLibrary")] [SerializeField]
-    private AudioClip[] audioLibrary;
-
-    [Header("GameCore")] [SerializeField] private int objectsFonded = 0;
+    
+    [Header("GameCore")] 
+    [SerializeField] private int objectsFonded = 0;
 
 
     protected override void Awake()
     {
         base.Awake();
-        uiController.Initialize();
+        objectsFonded = 0;
     }
 
     public void Dependencies()
     {
-        if (AudioManager.Instance == null)
-        {
-            Instantiate(prefAudioManager);
-        }
-
-        if (uiController == null)
-            uiController = Instantiate(prefUiController);
-
-        objectsFonded = 0;
-        HandleLevelColliders(false);
+       
     }
 
     public override void EnterState()
@@ -51,8 +34,9 @@ public class Excercise1State : GameStateBase
         base.ExitState();
     }
 
-    private void SetState(LocalState _nextState)
+    protected override void SetState(LocalState _nextState)
     {
+        base.SetState(_nextState);
         switch (_nextState)
         {
             case LocalState.Intro:
@@ -70,9 +54,6 @@ public class Excercise1State : GameStateBase
 
         ActualState = _nextState;
     }
-
-
-
 
     private async void OnStartIntro()
     {
