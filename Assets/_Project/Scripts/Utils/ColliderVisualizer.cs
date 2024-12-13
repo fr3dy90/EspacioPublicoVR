@@ -3,6 +3,7 @@ using System.Collections.Generic;
 
 public class ColliderVisualizer : MonoBehaviour
 {
+    /*
     public Color colliderColor = Color.green;
     public bool drawWireframe = true;
 
@@ -137,11 +138,11 @@ public class ColliderVisualizer : MonoBehaviour
             Vector3 p1 = new Vector3(Mathf.Cos(theta1), 0, Mathf.Sin(theta1)) * radius;
             Vector3 p2 = new Vector3(Mathf.Cos(theta2), 0, Mathf.Sin(theta2)) * radius;
 
-            // Círculo superior
+            // CÃ­rculo superior
             GL.Vertex(matrix.MultiplyPoint3x4(p1 + upOffset));
             GL.Vertex(matrix.MultiplyPoint3x4(p2 + upOffset));
 
-            // Círculo inferior
+            // CÃ­rculo inferior
             GL.Vertex(matrix.MultiplyPoint3x4(p1 + downOffset));
             GL.Vertex(matrix.MultiplyPoint3x4(p2 + downOffset));
 
@@ -150,7 +151,7 @@ public class ColliderVisualizer : MonoBehaviour
             GL.Vertex(matrix.MultiplyPoint3x4(p1 + downOffset));
         }
 
-        // Dibujar líneas entre los polos
+        // Dibujar lÃ­neas entre los polos
         int halfSegments = segments / 2;
         for (int i = 0; i <= halfSegments; i++)
         {
@@ -165,4 +166,5 @@ public class ColliderVisualizer : MonoBehaviour
             GL.Vertex(matrix.MultiplyPoint3x4(pBottom));
         }
     }
+    */
 }
